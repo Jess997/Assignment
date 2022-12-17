@@ -1,0 +1,14 @@
+# Import pandas package
+import pandas as pd
+
+# Read your file as a dataframe
+myDataframe = pd.read_csv("GDP.csv")
+
+# Convert 'Rates' column to float (if needed)
+myDataframe = myDataframe.astype({"Rates":"float"})
+
+# Extract the 'city' row by using this notation
+interestingRow = myDataframe[myDataframe["Curr"] == "GBP"]
+
+# Extract the rate value from the row
+theRate = interestingRow["Rates"]
