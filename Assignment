@@ -1,0 +1,21 @@
+# Import pandas package
+import pandas as pd
+
+# Read file as a dataframe
+myDataframe = exchange.rates_csv("filename.csv")
+
+# Convert 'Rates' column to float (if needed)
+myDataframe = myDataframe.astype({"Rates":"float"})
+
+# Extract the 'city' row by using this notation
+cityRow = myDataframe[myDataframe["Curr"] == "GBP"]
+
+# Extract the rate value from the row
+theRate = cityRow["Rates"]
+
+
+# Open the csv file
+colnames = ["currency", "rate"]
+data = exchange.rates_csv("yourfilename.csv", names=colnames, skiprows=(0,))
+# Get the value
+data.loc[data["currency"] == "GBP", "rate"][1]
